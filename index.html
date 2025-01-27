@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Multi-Robot Motion Planning with Diffusion Models.">
+  <meta name="keywords" content="MAPF, Manipulation, Robotics, Diffusion Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-Robot Motion Planning with Diffusion Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SFQ058VSQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-3SFQ058VSQ');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.gif">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+<!-- 
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Multi-Robot Motion Planning with Diffusion Models</h1>
+          <h1 class="title is-4 publication-title">To be presented at ICLR 2025</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yoraish.com">Yorai shaoul</a><sup>★</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/imishani">Itamar Mishani</a><sup>★</sup>,</span>
+            <span class="author-block">
+              <a href="https://shivamvats.com/">Shivam Vats</a><sup>★</sup>,</span>
+              <span class="author-block">
+                <a href="http://jiaoyangli.me">Jiaoyang Li</a><sup></sup>, and
+              </span>
+              <span class="author-block">
+              <a href="https://www.cs.cmu.edu/~maxim/">Maxim Likhachev</a><sup></sup>.
+            </span>
+          </div>
+            <p class="is-size-5 publication-authors"> Carnegie Mellon University </p>
+            <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>★</sup>Equal contribution.</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2410.03072"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>PDF</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2410.03072"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/yoraish/mmd"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/GDXzmoE-1D4?si=EjD29Q7LmEHfMDKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <h2 class="subtitle has-text-centered">
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-highways">
+          <video poster="" id="highways" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/highways.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-conveyor">
+          <video poster="" id="conveyor" autoplay muted loop playsinline height="200%">
+            <source src="./static/videos/conveyor.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-empty">
+          <video poster="" id="empty" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/empty.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-drop-region">
+          <video poster="" id="drop-region" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/drop_region.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Diffusion models have recently been successfully applied to a wide range of robotics applications for learning complex multi-modal behaviors from data. However, prior works have mostly been confined to single-robot and small-scale environments due to the high sample complexity of learning multi-robot diffusion models. In this paper, we propose a method for generating collision-free multi-robot trajectories that conform to underlying data distributions while using only single-robot data. Our algorithm, Multi-robot Multi-model planning Diffusion (MMD), does so by combining learned diffusion models with classical search-based techniques -- generating data-driven motions under collision constraints. Scaling further, we show how to compose multiple diffusion models to plan in large environments where a single diffusion model fails to generalize well. We demonstrate the effectiveness of our approach in planning for dozens of robots in a variety of simulated scenarios motivated by logistics environments. View video demonstrations in our supplementary material, and our code at: <a href="https://github.com/yoraish/mmd"> github.com/yoraish/mmd</a>.
+                  </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Main Idea</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            One of the core ideas behind MMD is simple and effective: since diffusion models can admit soft-constraints via guidance functions within their denoising process, we can coordinate robots planning with diffusion models by using ideas borrowed from constraint-based multi-agent planning algorithms. 
+            In this paper we show that MMD is able to not only generate collision-free trajectories for dozens of robots, but, importantly, that the robots remain adherent to their individually-learned data distributions even when constrained. This allows for the generation of data-driven, collision-free trajectories for multiple robots in complex environments using only single-robot data.  
+          </p>
+        </div>
+      </div>
+    </div>
+    <h1 class="title is-4">Example</h1>
+
+    <div class="columns is-centered">
+      <!-- Line collision. -->
+      <div class="column">
+        <div class="content">
+          <video poster="" id="collision" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/two_robot_line_collision.mp4"
+                    type="video/mp4"> </video>
+              <p class="is-size-5 publication-authors"> Blindly generating trajectories for multiple robots sharing a workspace will likely results in collisions. </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <video poster="" id="collision" autoplay muted loop playsinline height="100%">
+              <source src="./static/videos/two_robot_line_denoising.mp4"
+                      type="video/mp4"> </video>
+              <p class="is-size-5 publication-authors"> Using ideas borrowed from constraint-based planning algorithms, MMD can find effective space-time constraint configurations. In the video: regenerating trajectories for one robot under one derive constraint (middle).  </p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <video poster="" id="collision" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/two_robot_line_no_collision.mp4"
+                    type="video/mp4"> </video>
+              <p class="is-size-5 publication-authors"> The final result: collision-free trajectories for both robots. </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{shaoul2024multi,
+      title={Multi-Robot Motion Planning with Diffusion Models},
+      author={Shaoul, Yorai and Mishani, Itamar and Vats, Shivam and Li, Jiaoyang and Likhachev, Maxim},
+      journal={The Thirteenth International Conference on Learning Representations (ICLR),
+      also at AAAI 2025 Workshop on Multi-Agent Path Finding},
+      year={2025},
+      }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website was adapted from <a href="https://nerfies.github.io">Nerfies</a>, and is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

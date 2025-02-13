@@ -5,12 +5,13 @@ It has been adapted from the [Nerfies website](https://nerfies.github.io).
 
 If you find our work useful, please cite:
 ```
-@inproceedings{shaoul2025mmd,
-  title = {Multi-Robot Motion Planning with Diffusion Models},
-  author = {Shaoul*, Yorai and Mishani*, Itamar and Vats*, Shivam, and Likhachev, Maxim and Li, Jiaoyang},
-  booktitle = {13th International Conference on Learning Representations},
-  year = {2025},
-  page = {multi-robot-diffusion.github.io},
+@inproceedings{
+shaoul2025multirobot,
+title={Multi-Robot Motion Planning with Diffusion Models},
+author={Yorai Shaoul and Itamar Mishani and Shivam Vats and Jiaoyang Li and Maxim Likhachev},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025},
+url={https://openreview.net/forum?id=AUCYptvAf3}
 }
 ```
 
